@@ -1,22 +1,22 @@
-import React from 'react';
+// import React, { useState, useEffect, useRef } from 'react';
+
+// Import components
+// import Door from './components/Door'
+// import Counter from './components/Counter'
+import KeyPad from './components/KeyPad'
+
 import './App.css';
 
+
+
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Main-container">
+      {/* <Door className="test"/> */}
+      {/* <Door className="test"/> */}
+      {/* <Counter /> */}
+      <KeyPad startingFloor={3} />
     </div>
   );
 }
