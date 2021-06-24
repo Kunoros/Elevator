@@ -1,9 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function Counter() {
+type Props = {
+  floorOrder: any,
+  doorStatus: any
+}
+
+const Counter: React.FC<Props> = (props) => {
+  const [floorNumber, setFloorNumber] = useState()
+
+  const test = () => {
+    // waneer doorStatus === true,loop throug floorOrder en update <h1></h1>
+    return <h1>test</h1>
+  }
+
   return (
     <div>
-        <h1>Counter</h1>
+      {props.doorStatus ? (test()) : null}
     </div>
   );
 }

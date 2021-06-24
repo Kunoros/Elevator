@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 
 type Props = {
-  startingFloor: any
+  startingFloor: any,
+  getFloorOrder: any,
+  toggleDoorStatus: any
 }
 
 const KeyPad: React.FC<Props> = (props) => {
@@ -21,12 +23,13 @@ const KeyPad: React.FC<Props> = (props) => {
   function floorCountDown() {
     if (floors.current[0] === 0) {
       floors.current.sort((a, b) => { return a - b })
-    } if (floors.current[0] === 6) {
+    } if (floors.current[0] === 5) {
       floors.current.sort((a, b) => { return b - a })
     } else {
-      console.log('starting floor is not 0 or 6!')
+      // ! not working
     }
-    console.log(floors)
+    props.getFloorOrder(floors.current)
+    props.toggleDoorStatus()
   }
 
   return (
@@ -34,9 +37,7 @@ const KeyPad: React.FC<Props> = (props) => {
       <div>
         {keyPadNumber.map(numbers => {
           return (
-            <div>
               <button key={numbers} type={'button'} onClick={() => numPadFloorNumber(numbers)}>{numbers}</button>
-            </div>
           )
         })}
       </div>
